@@ -17,7 +17,7 @@ set textwidth=120
 "turn syntax highlighting on
 set t_Co=256
 syntax on
-colorscheme wombat256mod
+"colorscheme wombat256mod
 "turn line numvers on
 set nu
 "highlight matching braces
@@ -41,12 +41,27 @@ Plugin 'vim-scripts/FuzzyFinder'
 Plugin 'itchyny/lightline.vim'
 Plugin 'skammer/vim-css-color'
 Plugin 'hail2u/vim-css3-syntax'
+Plugin 'tpope/vim-fugitive'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'severin-lemaignan/vim-minimap'
 call vundle#end()
 filetype plugin indent on
 "Keyboard mappings
+
+" cpp-enhanced-highlight setting
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_experimental_template_highlight = 1
+let g:cpp_concepts_highlight = 1
+
+
 
 " in normal mode F2 will save the file
 nmap <F2> :w<CR>
 " in insert mode F2 will exit insert, save, enters insert again
 nmap <F2> <ESC>:w<CR>i
-
+" Switch between Vim window splits
+nmap <silent> <A-Up> :wincmd k<CR>
+nmap <silent> <A-Down> :wincmd j<CR>
+nmap <silent> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Right> :wincmd l<CR>
