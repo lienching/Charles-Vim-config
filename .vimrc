@@ -1,5 +1,4 @@
-" VIM Config File
-
+:set background&
 "set encoding to UTF-8
 set enc=utf-8
 set fenc=utf-8
@@ -44,6 +43,7 @@ Plugin 'hail2u/vim-css3-syntax'
 Plugin 'tpope/vim-fugitive'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'severin-lemaignan/vim-minimap'
+Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 filetype plugin indent on
 "Keyboard mappings
@@ -54,7 +54,8 @@ let g:cpp_member_variable_highlight = 1
 let g:cpp_experimental_template_highlight = 1
 let g:cpp_concepts_highlight = 1
 
-
+" YouCompleteMe Setting
+let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
 
 " in normal mode F2 will save the file
 nmap <F2> :w<CR>
