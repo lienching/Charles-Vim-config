@@ -11,8 +11,17 @@ set smartindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
-"wrap line at 120 chars. 
-set textwidth=120
+
+"Word wrap without line break
+set wrap
+set linebreak
+set nolist " list disable linebreak
+
+
+"disable auto wrap 
+set textwidth=0
+set wrapmargin=0
+
 "turn syntax highlighting on
 set t_Co=256
 syntax on
@@ -44,13 +53,15 @@ Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'severin-lemaignan/vim-minimap'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'davidhalter/jedi'
 Plugin 'scrooloose/syntastic'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'felixhummel/setcolors.vim'
 Plugin 'universal-ctags/ctags'
 Plugin 'majutsushi/tagbar'
+Plugin 'google/vim-maktaba'
+Plugin 'bazelbuild/vim-bazel'
+Plugin 'vim-airline/vim-airline'
 call vundle#end()
 filetype plugin indent on
 "Keyboard mappings
@@ -62,16 +73,7 @@ let g:cpp_experimental_template_highlight = 1
 let g:cpp_concepts_highlight = 1
 
 " YouCompleteMe Setting
-let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
-
-" Powerline
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
-set laststatus=2 " Always display the statusline in all windows
-set showtabline=2 " Always display the tabline, even if there is only one tab
-set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
-set t_Co=256
+let g:ycm_global_ycm_extra_conf = "home/lienching/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py"
 
 "Emmet
 let g:user_emmet_install_global = 0
@@ -93,6 +95,7 @@ let g:syntastic_check_on_wq = 0
 " NERDTree
 autocmd BufEnter * NERDTreeMirror
 autocmd VimEnter * wincmd w
+nnoremap <silent> <F5> :NERDTree<CR> 
 
 " in normal mode F2 will save the file
 nmap <F2> :w<CR>
